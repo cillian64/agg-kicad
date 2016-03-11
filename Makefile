@@ -4,13 +4,13 @@ build: build-libs build-mods
 
 build-libs: build-lib-connector build-lib-ic build-lib-power build-lib-switch
 
-build-mods: build-mod-chip build-mod-ic build-mod-jstpa build-mod-sil-dil
+build-mods: build-mod-chip build-mod-ic build-mod-jstpa build-mod-sil-dil build-mod-picoblade
 
 build-verify: verify-libs verify-mods
 
 verify-libs: verify-lib-connector verify-lib-ic verify-lib-power
 
-verify-mods: verify-mod-chip verify-mod-ic verify-mod-jstpa verify-mod-sil-dil
+verify-mods: verify-mod-chip verify-mod-ic verify-mod-jstpa verify-mod-sil-dil verify-mod-picoblade
 
 compile: compile-lib compile-pro
 
@@ -61,6 +61,12 @@ build-mod-jstpa:
 
 verify-mod-jstpa:
 	python scripts/build_mod_jstpa.py agg.pretty/ --verify
+
+build-mod-picoblade:
+	python scripts/build_mod_picoblade.py agg.pretty/
+
+verify-mod-picoblade:
+	python scripts/build_mod_picoblade.py agg.pretty/ --verify
 
 build-mod-sil-dil:
 	python scripts/build_mod_sil_dil.py agg.pretty/
